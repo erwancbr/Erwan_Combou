@@ -1,0 +1,27 @@
+{
+  "name": "erwan_combou",
+  "version": "1.0.0",
+  "description": "project devweb",
+  "homepage": "https://github.com/erwancbr/Erwan_Combou#readme",
+  "bugs": {
+    "url": "https://github.com/erwancbr/Erwan_Combou/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erwancbr/Erwan_Combou.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.5",
+    "tailwindcss": "^4.1.5"
+  },
+  "devDependencies": {
+    "daisyui": "^5.0.35"
+  }
+}
