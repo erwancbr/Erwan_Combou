@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact</title>
+  <link href="../style/output.css" rel="stylesheet" />
+</head>
+<body class="min-h-screen flex items-center justify-center bg-base-100">
+    <div class="container mx-auto max-w-4xl p-8 rounded-2xl shadow-lg bg-base-200">
+        <h1 class="text-3xl font-bold mb-4 text-center text-red-500">Contactez-moi</h1>
+        <p class="text-gray-200 mb-6 p text-center">Si vous avez des questions ou souhaitez discuter d'un projet, n'hésitez pas à me contacter !</p> 
+        <form class="bg-base-200 border border-base-300 rounded-box p-6 mt-3">
+
+            <label class="label" for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" class="input input-bordered w-full mb-3" placeholder="Nom" required />
+
+            <label class="label" for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" class="input input-bordered w-full mb-3" placeholder="Prénom" required />
+
+            <label class="label" for="email">Email</label>
+            <input type="email" id="email" name="email" class="input input-bordered w-full mb-3" placeholder="Email" required />
+
+            <label class="label" for="message">Message</label>
+            <textarea id="message" name="message" class="textarea textarea-bordered w-full h-32 mb-4" placeholder="Votre message ici..." required></textarea>
+
+            <button type="submit" class="btn btn-primary w-full">Envoyer</button>
+        </form>
+    </div>
+</body>
+</html>
