@@ -1,0 +1,26 @@
+[
+    {
+        "qlabel": "Quelle est la capitale de la France ?",
+        "qid": 1,
+        "reponses": [
+            { "rlabel": "Paris", "rid": 1, "correct": true },
+            { "rlabel": "Lyon", "rid": 2, "correct": false }
+        ]
+    },
+    {
+        "qlabel": "Quel est le plus grand océan du monde ?",
+        "qid": 2,
+        "reponses": [
+            { "rlabel": "Océan Pacifique", "rid": 1, "correct": true },
+            { "rlabel": "Océan Atlantique", "rid": 2, "correct": false }
+        ]
+    },
+    {
+        "qlabel": "Quelle est la planète la plus proche du Soleil ?",
+        "qid": 3,
+        "reponses": [
+            { "rlabel": "Mercure", "rid": 1, "correct": true },
+            { "rlabel": "Vénus", "rid": 2, "correct": false }
+        ]
+    }
+]
