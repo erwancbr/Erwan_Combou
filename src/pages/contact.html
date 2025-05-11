@@ -7,7 +7,10 @@
   <link href="../style/output.css" rel="stylesheet" />
 </head>
 <body class="min-h-screen flex items-center justify-center bg-base-100">
+    
     <div class="container mx-auto max-w-4xl p-8 rounded-2xl shadow-lg bg-base-200">
+        <button type="submit" class="btn btn-primary absolute" onclick="window.location.href ='../index.html'">⬅️ Retour</button>
+
         <h1 class="text-3xl font-bold mb-4 text-center text-red-500">Contactez-moi</h1>
         <p class="text-gray-200 mb-6 p text-center">Si vous avez des questions ou souhaitez discuter d'un projet, n'hésitez pas à me contacter !</p> 
         <form class="bg-base-200 border border-base-300 rounded-box p-6 mt-3">
@@ -24,8 +27,10 @@
             <label class="label" for="message">Message</label>
             <textarea id="message" name="message" class="textarea textarea-bordered w-full h-32 mb-4" placeholder="Votre message ici..." required></textarea>
 
-            <button type="submit" class="btn btn-primary w-full">Envoyer</button>
+            <button type="submit" class="btn btn-primary w-full" onclick="sendmessage()">Envoyer</button>
         </form>
+        
     </div>
 </body>
+<script src="../script/contact.js"></script>
 </html>

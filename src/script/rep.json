@@ -1,26 +1,58 @@
 [
     {
-        "qlabel": "Quelle est la capitale de la France ?",
+        "qlabel": "Combien font 2 + 2 ?",
         "qid": 1,
         "reponses": [
-            { "rlabel": "Paris", "rid": 1, "correct": true },
-            { "rlabel": "Lyon", "rid": 2, "correct": false }
+            { "rlabel": "4", "rid": 1, "correct": true },
+            { "rlabel": "5", "rid": 2, "correct": false }
         ]
     },
     {
-        "qlabel": "Quel est le plus grand océan du monde ?",
+        "qlabel": "De quelle couleur est le ciel (par temps clair) ?",
         "qid": 2,
         "reponses": [
-            { "rlabel": "Océan Pacifique", "rid": 1, "correct": true },
-            { "rlabel": "Océan Atlantique", "rid": 2, "correct": false }
+            { "rlabel": "Bleu", "rid": 1, "correct": true },
+            { "rlabel": "Vert", "rid": 2, "correct": false }
         ]
     },
     {
-        "qlabel": "Quelle est la planète la plus proche du Soleil ?",
+        "qlabel": "Combien y a-t-il de jambes sur un humain ?",
         "qid": 3,
         "reponses": [
-            { "rlabel": "Mercure", "rid": 1, "correct": true },
-            { "rlabel": "Vénus", "rid": 2, "correct": false }
+            { "rlabel": "2", "rid": 1, "correct": true },
+            { "rlabel": "4", "rid": 2, "correct": false }
+        ]
+    },
+    {
+        "qlabel": "Combien y a-t-il de jours dans une semaine ?",
+        "qid": 4,
+        "reponses": [
+            { "rlabel": "7", "rid": 1, "correct": true },
+            { "rlabel": "10", "rid": 2, "correct": false }
+        ]
+    },
+    {
+        "qlabel": "Quelle boisson donne des bulles ?",
+        "qid": 5,
+        "reponses": [
+            { "rlabel": "Soda", "rid": 1, "correct": true },
+            { "rlabel": "Eau plate", "rid": 2, "correct": false }
+        ]
+    },
+    {
+        "qlabel": "Quelle saison est la plus chaude ?",
+        "qid": 6,
+        "reponses": [
+            { "rlabel": "Été", "rid": 1, "correct": true },
+            { "rlabel": "Hiver", "rid": 2, "correct": false }
+        ]
+    },
+    {
+        "qlabel": "Combien font 1 + 1 ?",
+        "qid": 7,
+        "reponses": [
+            { "rlabel": "2", "rid": 1, "correct": true },
+            { "rlabel": "3", "rid": 2, "correct": false }
         ]
     }
 ]

@@ -1,14 +1,22 @@
-<!doctype html>
-<html data-theme="minecraft">
+<!DOCTYPE html>
+<html lang="fr" data-theme="minecraft">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./style/output.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil Minecraft de erwan.cbr</title>
+  <link rel="icon" href="./favicon.ico" />
+  <link href="./style/output.css" rel="stylesheet" />
 </head>
 <body class="bg-primary text-white min-h-screen p-6">
 
+  <script src="./script/gradient.js"></script>
+
+
   <div class="container mx-auto max-w-4xl p-8 rounded-2xl shadow-lg bg-secondary">
-    <h1 class="text-3xl font-bold mb-4 text-center text-red-500">erwan.cbr dans Minecraft</h1>
+    <h1 id="gradient-text"
+    class="font-bold text-transparent text-3xl bg-clip-text text-center transition-all duration-1000 bg-[length:200%_200%] bg-center">
+    <a href="https://fr.namemc.com/profile/erwan_cbr.1" target="_blank" class="hover:bg-primary">erwan.cbr</a> dans Minecraft
+  </h1>
 
     <section class="mb-8">
       <h2 class="text-2xl font-semibold mb-2 text-green-400">Profil Joueur</h2>
@@ -75,33 +83,38 @@
         Au-delà du gameplay, je suis passionné par l’univers de Minecraft, son histoire et ses communautés. Je m’intéresse à la création de maps d’aventure, à la modélisation 3D de blocs et mobs, et à la technologie en lien avec les jeux bac à sable. J’explore aussi les dernières mises à jour et snapshots.
       </p>
     </section>
-
   </div>
 
+  <!-- Bouton modal -->
   <div class="flex justify-center mt-6">
-    <label for="my_modal_6" class="btn btn-primary hover:bg-orange-400">
+    <label for="my_modal_6" class="btn btn-primary hover:bg-orange-400" role="button">
       Cliquez ici pour me contacter !
     </label>
   </div>
 
+  <!-- Modale -->
   <input type="checkbox" id="my_modal_6" class="modal-toggle" />
   <div class="modal" role="dialog">
-    
     <div class="modal-box bg-[#6D4C41] text-white">
       <h3 class="text-2xl text-center font-bold">Vainerac CAPTCHA</h3>
+      <div id="questionnaire" class="mt-4"></div>
 
-      <div id="questionnaire"></div>
-      <script src="./script/questionnaire.js"></script>
-
-      </div>
       <div class="modal-action">
         <label for="my_modal_6" class="btn bg-orange-400 text-white hover:bg-orange-500">Fermer</label>
       </div>
     </div>
   </div>
 
-  <footer class="bg-[#3E2723] mt-6 block text-center text-3xl font-medium text-yellow-300">
-    Vainerac Développement &copy; - Tous droits réservés
-  </footer>
 
-</body
+  <!-- Pied de page -->
+  <footer class="w-full h-32 bg-[#3E2723] fixed bottom-0 left-0 flex flex-col items-center justify-center text-center text-lg font-medium text-yellow-300 px-4">
+    <a class="text-cyan-400" href="./pages/contact.html">Vainerac</a>
+    Développement &copy; - Tous droits réservés
+  </footer>
+  
+  
+
+  <!-- Script JS -->
+  <script src="./script/questionnaire.js"></script>
+</body>
+</html>

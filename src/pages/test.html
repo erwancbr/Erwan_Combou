@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Questionnaire</title>
+  <meta charset="UTF-8">
+  <title>Texte Dégradé Animé</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="script.js"></script>
 </head>
-<body>
-    test
-    <div id="questionnaire"></div>
-
-    <script src="../script/questionnaire.js"></script>
+<body class="flex items-center justify-center h-screen bg-gray-900">
+  <h1 id="gradient-text" class="text-6xl font-bold text-transparent bg-clip-text transition-all duration-1000">
+    Texte Dégradé
+  </h1>
 </body>
 </html>
+<script src="../script/gradient.js"></script>
