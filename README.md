@@ -1,100 +1,122 @@
-# Erwan\_Combou
+# 🌐 Projet Web - Erwan C. 🎮
 
-Ce repository contient un projet HTML/CSS réalisé dans le cadre du cours de Développement Web. Il met en œuvre les composants de **daisyUI** et inclut plusieurs fonctionnalités interactives à travers HTML, CSS, et JavaScript.
+Ce projet est avant tout un **CV interactif** en ligne pour présenter mon profil Minecraft, en l'occurrence mon compte **erwan.cbr**. L'objectif est de créer une page Web qui affiche mes compétences, expériences, et réalisations dans l'univers de Minecraft, tout en intégrant un **questionnaire CAPTCHA** interactif pour valider l'utilisateur. 📝
 
----
+Le projet utilise un questionnaire dynamique avec une logique de validation, des animations interactives, et un bouton caché permettant de tester le questionnaire via un mode brute force. Ce système permet de garantir que le projet est à la fois fonctionnel et interactif. ⚙️
 
-## 🎯 Objectif du projet
+## Fonctionnalités principales ✨
 
-Créer une page web présentant :
+- **🎮 CV interactif Minecraft** : La page présente un résumé détaillé de mon parcours en tant que joueur Minecraft, de mes compétences techniques et organisationnelles, ainsi que mes expériences en tant que développeur de serveurs et builder.
+- **🧩 Questionnaire CAPTCHA** : Un questionnaire interactif est intégré pour vérifier que l'utilisateur est un humain. Chaque question est aléatoire, avec des réponses mélangées à chaque fois.
+- **✅ Validation des réponses** : L'utilisateur doit répondre correctement aux questions. Une réponse incorrecte est signalée par un message d'erreur.
+- **🔒 Bouton de bruteforce caché** : Un bouton permettant de brute forcer le questionnaire (enregistrer et envoyer toutes les réponses possibles) est inclus, mais il est discret et seulement visible si activé manuellement.
+- **🧮 Calculatrice intégrée** : Un modal de calculatrice est inclus, permettant à l'utilisateur de faire des calculs sans quitter la page.
 
-* Un **CV** ou une **passion personnelle** sans afficher de données personnelles (pas de nom, prénom, etc.)
-* Des **composants daisyUI** tels que :
+## Technologies utilisées 💻
 
-  * Navigation
-  * Accordéon
-  * Image
-  * Slideshow
-* Une **calculatrice** accessible depuis un menu, réalisée lors du cours
-* Un menu **"Me contacter"** comprenant :
+- **HTML5** : Structure de base de la page et gestion des éléments multimédia.
+- **CSS** : Mise en forme du site avec un design responsive et des animations CSS.
+- **JavaScript** : Logique du questionnaire, gestion des événements et de la validation des réponses.
+- **TailwindCSS** : Framework CSS pour des styles rapides et modernes.
+- **JSON** : Stockage des questions et des réponses dans un fichier JSON externe.
 
-  * Une série de **questions-réponses** à valider pour débloquer le formulaire de contact
-  * Un formulaire de contact avec `mailto` si toutes les réponses sont correctes
+## Installation 🚀
 
----
+1. Clonez ce dépôt sur votre machine locale :
 
-## 📦 Contenu du projet
+   ```bash
+   git clone https://github.com/votre-utilisateur/votre-repository.git
 
-### 1. Structure générale
+2. Assurez-vous d'avoir installé toutes les dépendances nécessaires. Si vous utilisez un gestionnaire de paquets comme npm, vous pouvez installer TailwindCSS et d'autres dépendances :
 
-* `index.html` : Page principale (CV ou passion)
-* `calculatrice.html` : Page contenant la calculatrice
-* `contact/Ax_x_Ay_y.html` : Page contact générée pour chaque combinaison correcte de réponses
-* `script.js` : Contient le **questionnaire** et la logique d'affichage/interaction
+   ```bash
+   npm install
+   ```
 
-### 2. Questionnaire interactif
+3. Ouvrez `index.html` dans votre navigateur pour voir le projet en action.
 
-* Le fichier `script.js` contient une constante `questionnaire` sous la forme :
+## Structure du projet 🗂️
 
-```js
-const questionnaire = [
-  {
-    qlabel: 'Quelle est la couleur du ciel ?',
-    qid: 1,
-    reponses: [
-      { rlabel: 'Bleu', rid: 1 },
-      { rlabel: 'Rouge', rid: 2 }
-    ]
-  },
-  ...
-];
+```
+📁 projet-root/
+│
+├── .gitignore              # Fichiers à ignorer par Git
+├── LICENSE                 # Licence du projet (ex: MIT)
+├── package.json            # Dépendances et scripts NPM
+├── package-lock.json       # Verrouillage des versions de dépendances
+├── README.md               # Présentation complète du projet
+│
+├── node_modules/           # Modules Node installés via npm (auto-généré)
+│
+└── src/                    # Répertoire principal du code source
+    │
+    ├── index.html          # Page principale : CV interactif Minecraft
+    │
+    ├── pages/              # Pages secondaires du site
+    │   ├── contact.html    # Page de contact (redirigée après succès)
+    │   └── test.html       # Page de test (optionnelle ou debug)
+    │
+    ├── res/                # Ressources (sons, images, etc.)
+    │   ├── buzzer-error.mp3      # Son erreur réponse
+    │   └── correct-answer.mp3    # Son bonne réponse
+    │
+    ├── script/             # Scripts JavaScript
+    │   ├── calcu.js        # Logique de la calculatrice
+    │   ├── contact.js      # Script pour la page contact
+    │   ├── questionnaire.js# Script principal du quiz (CAPTCHA)
+    │   └── rep.json        # Questions et réponses du CAPTCHA
+    │
+    └── style/              # Feuilles de style
+        ├── input.css       # Fichier source Tailwind
+        └── output.css      # Fichier généré avec Tailwind (compilé)
+
 ```
 
-* Une fonction JavaScript boucle sur cette liste et injecte dynamiquement les questions dans le DOM via **template strings**
-* Chaque clic sur une réponse stocke une valeur formatée (`A{qid}_{rid}`) dans une variable `reponses`
+## Fichiers principaux 📂
 
-### 3. Vérification des réponses
+* **`index.html`** : Le fichier HTML principal qui contient l'interface utilisateur et qui charge les autres fichiers nécessaires (CSS et JS).
+* **`questionnaire.js`** : Contient la logique principale pour gérer l'affichage du questionnaire, le contrôle des réponses et l'activation du bouton bruteforce.
+* **`calcu.js`** : Gère la logique de la calculatrice qui est affichée dans un modal.
+* **`rep.json`** : Un fichier JSON contenant les questions du questionnaire et les réponses possibles, ainsi que la réponse correcte.
 
-* À la fin du questionnaire :
+## Fonctionnalités supplémentaires 🛠️
 
-  * Le script vérifie si un fichier HTML correspondant (`A1_1_A2_2.html` par exemple) existe
-  * Si **oui**, redirection automatique vers ce fichier (formulaire de contact)
-  * Si **non**, affichage d'un message : *"Suite à vos réponses, vous ne souhaitez pas être contacté."*
+* **🧮 Modal de calculatrice** : Un modal interactif permettant à l'utilisateur de faire des calculs sans quitter la page.
+* **🔓 Bouton Bruteforce** : Discret et non visible par défaut, il est destiné à tester rapidement toutes les réponses en un seul clic. Vous pouvez activer ce bouton en modifiant la fonction `addBruteForceButton()` dans le fichier `questionnaire.js`.
 
-### 4. Formulaire de contact (dans la page correcte)
+### Exemple d'utilisation du bouton Bruteforce ⚡
 
-* Champ : Nom, Prénom, Email, Message
-* Fonction `mailto` utilisée pour ouvrir le client mail avec les données pré-remplies
+Le bouton "Bruteforce" est caché par défaut et uniquement affiché lorsque l'on active sa fonction manuellement via la ligne `addBruteForceButton()` dans le fichier `questionnaire.js`. Une fois affiché, il permet de sauter le questionnaire en un seul clic, générant automatiquement toutes les réponses et les envoyant.
 
-### 5. Fonction brute force
+## Capture d'écran 📸
 
-* Un bouton spécial sur la page principale permet de **tester toutes les combinaisons possibles**
-* Lorsqu'une bonne combinaison est trouvée, l’utilisateur est automatiquement redirigé vers la page contact correspondante
+![Exemple du questionnaire CAPTCHA avec le bouton Bruteforce caché](./screenshots/captcha_example.png)
+
+## Objectif du projet 🎯
+
+Ce projet a été conçu pour mettre en valeur mon expérience et mes compétences dans Minecraft tout en créant une interface interactive qui peut également servir de méthode de validation (via le CAPTCHA). Le but est de fournir un CV moderne et original tout en offrant une expérience utilisateur interactive. 🚀
+
+## Contributions 🤝
+
+Les contributions sont les bienvenues ! Si vous souhaitez améliorer ce projet, vous pouvez ouvrir une **Pull Request** pour proposer des modifications.
+
+### Comment contribuer :
+
+1. Fork ce dépôt.
+2. Créez une nouvelle branche (`git checkout -b ma-nouvelle-fonctionnalite`).
+3. Faites vos changements et ajoutez des commits (`git commit -am 'Ajout de ma nouvelle fonctionnalité'`).
+4. Poussez vos modifications (`git push origin ma-nouvelle-fonctionnalite`).
+5. Créez une **Pull Request**.
+
+## Auteurs 👨‍💻
+
+* **Erwan Combourieu** - Développeur principal.
+
+## License 📝
+
+Ce projet est sous **licence MIT**. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
 ---
 
-## 🛠️ Technologies utilisées
+Si vous avez des questions ou des suggestions, n'hésitez pas à ouvrir un **issue** ou à envoyer une **pull request**. Profitez du projet ! 🎉
 
-* HTML5 / CSS3
-* JavaScript (DOM manipulation)
-* [Tailwind CSS](https://tailwindcss.com/)
-* [daisyUI](https://daisyui.com/)
-
----
-
-## 🔧 Installation et usage
-
-1. Clonez le projet :
-
-```bash
-git clone https://github.com/<ton-username>/Erwan_Combou.git
-```
-
-2. Ouvrez `index.html` dans un navigateur moderne
-3. Naviguez dans les menus : CV, Calculatrice, Me contacter
-
----
-
-## 📄 Licence
-
-Projet réalisé dans un cadre pédagogique — libre d’inspiration.
