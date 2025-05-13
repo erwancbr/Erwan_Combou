@@ -1,15 +1,47 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Texte Dégradé Animé</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script defer src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice</title>
+    <!-- Inclure Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inclure DaisyUI -->
+    <script src="https://cdn.jsdelivr.net/npm/daisyui@1.20.0/dist/full.js"></script>
 </head>
-<body class="flex items-center justify-center h-screen bg-gray-900">
-  <h1 id="gradient-text" class="text-6xl font-bold text-transparent bg-clip-text transition-all duration-1000">
-    Texte Dégradé
-  </h1>
+
+<body class="bg-gray-200 flex justify-center items-center h-screen">
+
+    <!-- Calculatrice -->
+    <div class="bg-white p-6 rounded-lg shadow-lg w-80">
+        <input id="display" class="w-full h-16 text-right text-3xl p-4 bg-gray-100 rounded-lg mb-6 border-none" type="text" disabled>
+
+        <div class="grid grid-cols-4 gap-4">
+            <button class="btn btn-secondary" onclick="appendNumber(7)">7</button>
+            <button class="btn btn-secondary" onclick="appendNumber(8)">8</button>
+            <button class="btn btn-secondary" onclick="appendNumber(9)">9</button>
+            <button class="btn btn-accent" onclick="chooseOperator('+')">+</button>
+
+            <button class="btn btn-secondary" onclick="appendNumber(4)">4</button>
+            <button class="btn btn-secondary" onclick="appendNumber(5)">5</button>
+            <button class="btn btn-secondary" onclick="appendNumber(6)">6</button>
+            <button class="btn btn-accent" onclick="chooseOperator('-')">-</button>
+
+            <button class="btn btn-secondary" onclick="appendNumber(1)">1</button>
+            <button class="btn btn-secondary" onclick="appendNumber(2)">2</button>
+            <button class="btn btn-secondary" onclick="appendNumber(3)">3</button>
+            <button class="btn btn-accent" onclick="chooseOperator('*')">*</button>
+
+            <button class="btn btn-secondary" onclick="appendNumber(0)">0</button>
+            <button class="btn btn-warning" onclick="clearDisplay()">C</button>
+            <button class="btn btn-success" onclick="calculateResult()">=</button>
+            <button class="btn btn-accent" onclick="chooseOperator('/')">/</button>
+        </div>
+    </div>
+
+    <!-- Inclure le fichier JavaScript -->
+    <script src="../script/calcu.js"></script>
 </body>
+
 </html>
-<script src="../script/gradient.js"></script>
