@@ -1,4 +1,6 @@
-function sendmessage() { 
+function sendmessage(event) { 
+    event.preventDefault();
+
     var nom = document.getElementById("nom").value.trim();
     var prenom = document.getElementById("prenom").value.trim();
     var email = document.getElementById("email").value.trim();

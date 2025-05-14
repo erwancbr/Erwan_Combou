@@ -4,46 +4,63 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profil Minecraft de erwan.cbr</title>
-    <link rel="icon" href="./favicon.ico" />
+    <meta name="description" content="Profil Minecraft de erwan.cbr – Créateur de serveurs, expert redstone, builder passionné.">
+    <meta name="keywords" content="Minecraft, profil, erwan.cbr, serveur, redstone, builder">
+    <meta name="author" content="erwan.cbr">
+    <link rel="shortcut icon" href="https://s.namemc.com/2d/skin/face.png?id=21184d4571429bbb&amp;scale=4">
     <link href="./style/output.css" rel="stylesheet" />
   </head>
   <body class="bg-primary text-white min-h-screen p-6">
-    
-    <button class="btn bg-blue-500 p-4 rounded-lg" onclick="checkScreenSize()">Ouvrir la calculatrice</button>
+
+    <button class="btn bg-blue-500 p-4 rounded-lg" onclick="checkScreenSize()" aria-label="Ouvrir la calculatrice"><img src="./res/calculator.png" alt="Icône calculatrice" class="w-10 h-10 object-contain"></button>
 
     <!-- Modale de la calculatrice -->
     <dialog id="my_modal_1" class="modal">
       <div class="modal-box w-[500px]">
         <h3 class="text-lg font-bold">Calculatrice</h3>
-  
+
         <!-- Calculatrice -->
-        <div class="bg-white p-6 rounded-lg shadow-lg w-full">
-          <input id="display" class="w-full h-16 text-right text-3xl p-4 bg-gray-100 rounded-lg mb-6 border-none" type="text" disabled>
-  
-          <div class="grid grid-cols-4 gap-3 sm:gap-4 text-lg sm:text-xl">
-            <button class="btn btn-secondary h-16" onclick="appendNumber(7)">7</button>
-            <button class="btn btn-secondary h-16" onclick="appendNumber(8)">8</button>
-            <button class="btn btn-secondary h-16" onclick="appendNumber(9)">9</button>
-            <button class="btn btn-accent h-16" onclick="chooseOperator('+')">+</button>
-          
-            <button class="btn btn-secondary h-16" onclick="appendNumber(4)">4</button>
-            <button class="btn btn-secondary h-16" onclick="appendNumber(5)">5</button>
-            <button class="btn btn-secondary h-16" onclick="appendNumber(6)">6</button>
-            <button class="btn btn-accent h-16" onclick="chooseOperator('-')">-</button>
-          
-            <button class="btn btn-secondary h-16" onclick="appendNumber(1)">1</button>
-            <button class="btn btn-secondary h-16" onclick="appendNumber(2)">2</button>
-            <button class="btn btn-secondary h-16" onclick="appendNumber(3)">3</button>
-            <button class="btn btn-accent h-16" onclick="chooseOperator('*')">*</button>
-          
-            <button class="btn btn-secondary h-16 col-span-1" onclick="appendNumber(0)">0</button>
-            <button class="btn btn-warning h-16 col-span-1" onclick="clearDisplay()">C</button>
-            <button class="btn btn-success h-16 col-span-1" onclick="calculateResult()">=</button>
-            <button class="btn btn-accent h-16 col-span-1" onclick="chooseOperator('/')">/</button>
+        <div class="bg-secondary p-6 rounded-xl shadow-xl w-full text-primary">
+          <input 
+            id="display" 
+            class="w-full h-16 text-right text-4xl p-4 bg-[#2e2e2e] text-white rounded-lg mb-6 border border-[#4a4a4a] font-mono tracking-widest" 
+            type="text" 
+            disabled 
+          />
+
+          <!-- Ligne 1 -->
+          <div class="flex justify-center gap-4 mb-3">
+            <button class="btn bg-neutral text-white w-20 h-16" onclick="appendNumber(7)">7</button>
+            <button class="btn bg-neutral text-white w-20 h-16" onclick="appendNumber(8)">8</button>
+            <button class="btn bg-neutral text-white w-20 h-16" onclick="appendNumber(9)">9</button>
+            <button class="btn bg-orange-500 text-white w-20 h-16" onclick="chooseOperator('+')">+</button>
           </div>
-          
+
+          <!-- Ligne 2 -->
+          <div class="flex justify-center gap-4 mb-3">
+            <button class="btn bg-neutral text-white w-20 h-16" onclick="appendNumber(4)">4</button>
+            <button class="btn bg-neutral text-white w-20 h-16" onclick="appendNumber(5)">5</button>
+            <button class="btn bg-neutral text-white w-20 h-16" onclick="appendNumber(6)">6</button>
+            <button class="btn bg-orange-500 text-white w-20 h-16" onclick="chooseOperator('-')">-</button>
+          </div>
+
+          <!-- Ligne 3 -->
+          <div class="flex justify-center gap-4 mb-3">
+            <button class="btn bg-neutral text-white w-20 h-16" onclick="appendNumber(1)">1</button>
+            <button class="btn bg-neutral text-white w-20 h-16" onclick="appendNumber(2)">2</button>
+            <button class="btn bg-neutral text-white w-20 h-16" onclick="appendNumber(3)">3</button>
+            <button class="btn bg-orange-500 text-white w-20 h-16" onclick="chooseOperator('*')">*</button>
+          </div>
+
+          <!-- Ligne 4 -->
+          <div class="flex justify-center gap-4">
+            <button class="btn bg-neutral text-white w-20 h-16" onclick="appendNumber(0)">0</button>
+            <button class="btn bg-red-500 text-white w-20 h-16" onclick="clearDisplay()">C</button>
+            <button class="btn bg-green-500 text-white w-20 h-16" onclick="calculateResult()">=</button>
+            <button class="btn bg-orange-500 text-white w-20 h-16" onclick="chooseOperator('/')">/</button>
+          </div>
         </div>
-  
+
         <div class="modal-action">
           <form method="dialog">
             <button class="btn">Fermer</button>
@@ -51,33 +68,34 @@
         </div>
       </div>
     </dialog>
-    <script src="./script/calcu.js"></script>
 
-  
-    <!-- Message d'erreur si l'écran est trop petit -->
+    <!-- Message d'erreur écran trop petit -->
     <div id="errorMessage" class="text-red-500 text-center mt-6" style="display: none;">
       <p>Votre écran est trop petit pour afficher la calculatrice. Veuillez agrandir la fenêtre de votre navigateur.</p>
     </div>
 
+    <!-- Contenu principal -->
     <div class="container mx-auto max-w-4xl p-8 rounded-2xl shadow-lg bg-secondary">
-      <h1 class="font-bold text-transparent text-3xl bg-clip-text text-center transition-all duration-1000 bg-[length:200%_200%] bg-center skeleton">
+      <h1 class="font-bold text-transparent text-3xl bg-clip-text text-center bg-[length:200%_200%] bg-center skeleton">
         <a href="https://fr.namemc.com/profile/erwan_cbr.1" target="_blank" class="underline text-blue-400">erwan.cbr</a> dans Minecraft
       </h1>
       <br>
+
+      <!-- Profil joueur -->
       <section class="mb-8">
         <h2 class="text-2xl font-semibold mb-2 text-green-400">Profil Joueur</h2>
         <p class="text-gray-200">
-          Passionné par Minecraft et l’exploration de ses mécaniques, je suis un joueur expérimenté dans la construction, la redstone et la survie. Je maîtrise les commandes, les mods, et les systèmes complexes. Curieux et ingénieux, je cherche à rejoindre une équipe de builders ou de développeurs pour créer des projets immersifs dans un univers stimulant.
+          Passionné par Minecraft et l’exploration de ses mécaniques, je suis un joueur expérimenté dans la construction, la redstone et la survie.
         </p>
       </section>
 
+      <!-- Expérience -->
       <section class="mb-8">
         <h2 class="text-2xl font-semibold mb-2 text-green-400">Expérience Minecraft</h2>
 
         <div class="mb-4">
           <p class="font-bold flex items-center gap-2 text-yellow-300">
-            Développeur de Serveurs Minecraft
-            <span class="loading loading-spinner loading-xs"></span>
+            Développeur de Serveurs Minecraft <span class="loading loading-spinner loading-xs"></span>
           </p>
           <p class="text-gray-100">Depuis 2022</p>
           <ul class="list-disc list-inside text-gray-200 mt-2">
@@ -91,71 +109,69 @@
           <p class="text-gray-100">Multijoueur et Solo | Depuis 2018</p>
           <ul class="list-disc list-inside text-gray-200 mt-2">
             <li>Création de bases automatisées</li>
-            <li>Utilisation avancée de la redstone (portes logiques, fermes automatisées)</li>
+            <li>Utilisation avancée de la redstone</li>
             <li>Projets créatifs en mode Créatif ou Survie Hardcore</li>
           </ul>
         </div>
       </section>
 
+      <!-- Compétences -->
       <section class="mb-8">
         <h2 class="text-2xl font-semibold mb-2 text-green-400">Compétences Minecraft</h2>
 
         <h3 class="text-xl font-semibold mt-4 text-yellow-200">Techniques</h3>
         <ul class="list-disc list-inside text-gray-200 mt-2">
           <li><strong class="text-orange-200">Commandes :</strong> /execute, /scoreboard, /data, fonctions personnalisées</li>
-          <li><strong class="text-orange-200">Redstone :</strong> Mécaniques complexes, systèmes de tri, portes logiques</li>
+          <li><strong class="text-orange-200">Redstone :</strong> Mécaniques complexes, systèmes de tri</li>
           <li><strong class="text-orange-200">Build :</strong> Architecture médiévale, moderne, fantastique</li>
           <li><strong class="text-orange-200">Mods & Plugins :</strong> Fabric, Forge, WorldEdit, EssentialsX</li>
         </ul>
 
         <h3 class="text-xl font-semibold mt-6 text-yellow-200">Organisationnelles & Relationnelles</h3>
         <ul class="list-disc list-inside text-gray-200 mt-2">
-          <li>Création de projets communautaires (serveurs RP, mini-jeux)</li>
-          <li>Autonomie dans la conception et la réalisation de builds</li>
-          <li>Participation à des events multijoueurs ou compétitions</li>
+          <li>Création de projets communautaires</li>
+          <li>Autonomie dans la conception de builds</li>
+          <li>Participation à des events multijoueurs</li>
         </ul>
 
         <h3 class="text-xl font-semibold mt-6 text-cyan-400">Langues</h3>
         <ul class="list-disc list-inside text-gray-200 mt-2">
           <li>Français : Natif</li>
-          <li>Anglais : B2 (lecture de docs, tutos, forums internationaux)</li>
-          <li>Espagnol : B1+ (interaction sur serveurs multilingues)</li>
+          <li>Anglais : B2</li>
+          <li>Espagnol : B1+</li>
         </ul>
       </section>
 
+      <!-- Intérêts -->
       <section>
         <h2 class="text-2xl font-semibold mb-2 text-green-400">Centres d’Intérêt</h2>
         <p class="text-gray-200">
-          Au-delà du gameplay, je suis passionné par l’univers de Minecraft, son histoire et ses communautés. Je m’intéresse à la création de maps d’aventure, à la modélisation 3D de blocs et mobs, et à la technologie en lien avec les jeux bac à sable. J’explore aussi les dernières mises à jour et snapshots.
+          Je m’intéresse à la création de maps, la modélisation 3D, et à tout ce qui touche à l’univers Minecraft.
         </p>
       </section>
     </div>
 
-    <!-- Bouton modal -->
+    <!-- Bouton de contact -->
     <div class="flex justify-center mt-6 mb-8 rounded-2xl">
       <label for="my_modal_6" class="btn btn-primary hover:bg-orange-400" role="button">
         Cliquez ici pour me contacter !
       </label>
     </div>
 
-    <!-- Modale -->
+    <!-- Modale CAPTCHA -->
     <input type="checkbox" id="my_modal_6" class="modal-toggle" />
     <div class="modal" role="dialog">
       <div class="modal-box bg-[#6D4C41] text-white">
         <h3 class="text-2xl text-center font-bold">Vainerac CAPTCHA</h3>
         <div id="questionnaire" class="mt-4"></div>
-
         <div class="modal-action">
           <label for="my_modal_6" class="btn bg-orange-400 text-white hover:bg-orange-500">Fermer</label>
         </div>
       </div>
     </div>
 
-    <!-- Pied de page -->
-
-
-
-    <!-- Script JS -->
+    <!-- Scripts -->
     <script src="./script/questionnaire.js"></script>
+    <script src="./script/calcu.js"></script>
   </body>
 </html>

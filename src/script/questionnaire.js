@@ -1,8 +1,8 @@
 let questions = [];
 let currentQuestionIndex = 0;
 let userResponses = {};
-var sounderr = new Audio('../res/buzzer-error.mp3');  // Remplace par le chemin de ton fichier sonore
-var soundgood = new Audio('../res/correct-answer.mp3');  // Remplace par le chemin de ton fichier sonore
+var sounderr = new Audio('./res/buzzer-error.mp3');  
+var soundgood = new Audio('./res/correct-answer.mp3');
 
 // Mélanger les éléments d'un tableau (Fisher-Yates)
 function shuffleArray(arr) {
@@ -57,7 +57,7 @@ async function bruteForce() {
             currentQuestionIndex++;
             if (currentQuestionIndex === questions.length) {
                 generateAnswersFile(); // Crée un fichier avec toutes les réponses à la fin
-                window.location.href = './pages/contact.html'; // Rediriger à la fin du questionnaire
+                window.location.href = './pages/A1_1_A2_1_A3_1_A4_1_A5_1_A6_1_A7_1.html'; // Rediriger à la fin du questionnaire
             } else {
                 console.log(`Passage à la question suivante: ${currentQuestionIndex + 1}`);
             }
@@ -154,6 +154,9 @@ function afficherQuestion(index) {
 
                 card.style.backgroundColor = '#f87171'; // Couleur rouge pour la mauvaise réponse
                 card.style.border = '2px solid #9b2c2c'; // Bordure rouge pour la mauvaise réponse
+                container.style.borderRadius = '12px';
+                container.style.padding = '1rem';
+                container.style.border = '2px dashed #ff0000'; // Bordure verte
 
                 sounderr.play();  // Joue le son d'erreur
 
@@ -162,12 +165,15 @@ function afficherQuestion(index) {
             } else {
                 // Si la réponse est correcte, passer à la question suivante
                 soundgood.play();  // Joue le son de succès
+
                 if (currentQuestionIndex < questions.length - 1) {
                     currentQuestionIndex++;
                     afficherQuestion(currentQuestionIndex);
+                    container.style.borderRadius = '12px';
+                    container.style.padding = '1rem';
+                    container.style.border = '2px dashed #059669'; // Bordure verte
                 } else {
-                    generateAnswersFile(); // Crée un fichier avec toutes les réponses à la fin
-                    window.location.href = './pages/contact.html'; // Rediriger à la fin du questionnaire
+                    window.location.href = './pages/A1_1_A2_1_A3_1_A4_1_A5_1_A6_1_A7_1.html'; // Rediriger à la fin du questionnaire
                 }
             }
         });
@@ -222,7 +228,10 @@ function addBruteForceButton() {
     document.body.appendChild(button);
 }
 
-
+function clearQuestionnaire() {
+    userResponses = {};
+    currentQuestionIndex = 0;
+}
 
 // Charger le questionnaire au chargement de la page
 loadQuestionnaire();
