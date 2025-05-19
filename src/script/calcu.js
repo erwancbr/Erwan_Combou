@@ -4,7 +4,7 @@ let firstOperand = null;
 
 function checkScreenSize() {
   const screenWidth = window.innerWidth;
-  if (screenWidth < 900) {
+  if (screenWidth < 768) {
     document.getElementById('errorMessage').style.display = 'block';
   } else {
     document.getElementById('my_modal_1').showModal();
