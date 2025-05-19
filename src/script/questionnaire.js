@@ -239,5 +239,3 @@ loadQuestionnaire();
 // Ajouter le bouton brute force après avoir chargé le questionnaire
 addBruteForceButton();
 
-var home = new Audio('./res/home.mp3');
-home.play();

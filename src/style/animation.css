@@ -1,0 +1,20 @@
+@keyframes example {
+      0%   { background-color: #ff0000; }   /* Rouge vif */
+      10%  { background-color: #ffa500; }   /* Orange vif */
+      20%  { background-color: #ffff00; }   /* Jaune pur */
+      30%  { background-color: #00ff00; }   /* Vert fluo */
+      40%  { background-color: #00ffff; }   /* Cyan intense */
+      50%  { background-color: #0000ff; }   /* Bleu électrique */
+      60%  { background-color: #8a2be2; }   /* Violet saturé */
+      70%  { background-color: #ff00ff; }   /* Fuchsia */
+      80%  { background-color: #ff1493; }   /* Rose fluo */
+      90%  { background-color: #ff69b4; }   /* Rose bonbon */
+      100% { background-color: #ff0000; }   /* Retour au rouge vif */
+}
+
+.rainbow {
+  animation-name: example;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  border-radius: 10px;
+}

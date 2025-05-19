@@ -9,6 +9,7 @@
     <meta name="author" content="erwan.cbr">
     <link rel="shortcut icon" href="https://s.namemc.com/2d/skin/face.png?id=21184d4571429bbb&amp;scale=4">
     <link href="./style/output.css" rel="stylesheet" />
+    <link href="./style/animation.css" rel="stylesheet" />
   </head>
   <body class="bg-primary text-white min-h-screen p-6" >
 
@@ -81,28 +82,61 @@
       </h1>
       <br>
 
+      <script src="./script/cheat.js"></script>
+
       <p class="text-center text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-        Bienvenue sur mon profil Minecraft ! Je suis <strong class="text-cyan-300">erwan.cbr</strong>, passionné par la redstone, la construction et le développement de serveurs. Explore mes compétences, mon expérience et mes projets dans l’univers cubique de Minecraft.
+        Bienvenue sur mon profil Minecraft ! Je suis <a class="text-cyan-300 font-bold cursor-pointer" onclick="rainbowToggle()">erwan.cbr</a>, passionné par la redstone, la construction et le développement de serveurs. Explore mes compétences, mon expérience et mes projets dans l’univers cubique de Minecraft.
       </p>
 
 
     <!-- Boutons d'ouverture -->
      <script src="./script/modals.js"></script>
 
-    <div class="flex gap-4 flex-wrap justify-center mb-6">
-      <button onclick="openModal('profilModal')" class="btn bg-green-500 hover:bg-green-600">
-        Profil Joueur
-      </button>
-      <button onclick="openModal('experienceModal')" class="btn bg-yellow-500 hover:bg-yellow-600">
-        Expérience
-      </button>
-      <button onclick="openModal('competencesModal')" class="btn bg-cyan-500 hover:bg-cyan-600">
-        Compétences
-      </button>
-      <button onclick="openModal('interetsModal')" class="btn bg-purple-500 hover:bg-purple-600 ">
-        Centres d’intérêt
-      </button>
-    </div>
+
+      <div class="carousel w-full mb-6 relative overflow-hidden">
+  <!-- Slide 1 -->
+  <div id="slide1" class="carousel-item relative w-full flex items-center justify-center cursor-pointer"
+       onclick="openModal('profilModal')">
+    <button onclick="event.stopPropagation(); openModal('profilModal')" class="btn bg-green-500 hover:bg-green-600 text-white z-10 openmod">
+      Profil Joueur
+    </button>
+    <a href="#slide4" class="btn btn-circle absolute left-4 top-1/2 -translate-y-1/2 z-20" onclick="event.stopPropagation()">❮</a>
+    <a href="#slide2" class="btn btn-circle absolute right-4 top-1/2 -translate-y-1/2 z-20" onclick="event.stopPropagation()">❯</a>
+  </div>
+
+  <!-- Slide 2 -->
+  <div id="slide2" class="carousel-item relative w-full flex items-center justify-center cursor-pointer"
+       onclick="openModal('experienceModal')">
+    <button onclick="event.stopPropagation(); openModal('experienceModal')" class="btn bg-yellow-500 hover:bg-yellow-600 text-white z-10 openmod">
+      Expérience
+    </button>
+    <a href="#slide1" class="btn btn-circle absolute left-4 top-1/2 -translate-y-1/2 z-20" onclick="event.stopPropagation()">❮</a>
+    <a href="#slide3" class="btn btn-circle absolute right-4 top-1/2 -translate-y-1/2 z-20" onclick="event.stopPropagation()">❯</a>
+  </div>
+
+  <!-- Slide 3 -->
+  <div id="slide3" class="carousel-item relative w-full flex items-center justify-center cursor-pointer"
+       onclick="openModal('competencesModal')">
+    <button onclick="event.stopPropagation(); openModal('competencesModal')" class="btn bg-cyan-500 hover:bg-cyan-600 text-white z-10 openmod">
+      Compétences
+    </button>
+    <a href="#slide2" class="btn btn-circle absolute left-4 top-1/2 -translate-y-1/2 z-20" onclick="event.stopPropagation()">❮</a>
+    <a href="#slide4" class="btn btn-circle absolute right-4 top-1/2 -translate-y-1/2 z-20" onclick="event.stopPropagation()">❯</a>
+  </div>
+
+  <!-- Slide 4 -->
+  <div id="slide4" class="carousel-item relative w-full flex items-center justify-center cursor-pointer"
+       onclick="openModal('interetsModal')">
+    <button onclick="event.stopPropagation(); openModal('interetsModal')" class="btn bg-purple-500 hover:bg-purple-600 text-white openmod">
+      Centres d’intérêt
+    </button>
+    <a href="#slide3" class="btn btn-circle absolute left-4 top-1/2 -translate-y-1/2 z-20" onclick="event.stopPropagation()">❮</a>
+    <a href="#slide1" class="btn btn-circle absolute right-4 top-1/2 -translate-y-1/2 z-20" onclick="event.stopPropagation()">❯</a>
+  </div>
+</div>
+
+
+
 
     <!-- MODALE : Profil Joueur -->
     <dialog id="profilModal" class="modal">
