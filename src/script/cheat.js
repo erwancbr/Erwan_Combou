@@ -2,8 +2,6 @@ var rainbow = new Audio('./res/starman.mp3');
 var home = new Audio('./res/home.mp3');
 var clique = 0;
 
-home.play();
-
 function rainbowToggle() {
     clique = (clique + 1) % 2;
 

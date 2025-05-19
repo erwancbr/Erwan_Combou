@@ -203,7 +203,7 @@ function addBruteForceButton() {
     button.textContent = 'Brute Force';
     
     // Style CSS du bouton
-    button.className = 'bg-blue-500 text-white py-3 px-6 rounded-lg opacity-10';  // Opacité réduite pour le cacher légèrement
+    button.className = 'bg-blue-500 text-white py-3 px-6 rounded-lg opacity-10 hover:cursor-pointer';  // Opacité réduite pour le cacher légèrement
     button.style.opacity = '0.3';  // Rendre plus discret à la sortie du survol
     button.style.position = 'fixed';
     button.style.bottom = '20px';  // Positionner en bas à droite

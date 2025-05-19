@@ -13,7 +13,13 @@
   </head>
   <body class="bg-primary text-white min-h-screen p-6" >
 
-    <button class="btn bg-blue-500 p-4 rounded-lg" onclick="checkScreenSize()" aria-label="Ouvrir la calculatrice"><img src="./res/calculator.png" alt="Icône calculatrice" class="w-10 h-10 object-contain animate-spin"></button>
+<button 
+  class="btn bg-blue-500 p-6 rounded-lg hover:bg-blue-900 flex items-center justify-center" 
+  onclick="checkScreenSize()" 
+  aria-label="Ouvrir la calculatrice"
+>
+  <img src="./res/calculator.png" alt="Icône calculatrice" class="w-11 h-11 object-cover" />
+</button>
 
     <!-- Modale de la calculatrice -->
     <dialog id="my_modal_1" class="modal">
@@ -77,27 +83,41 @@
 
     <!-- Contenu principal -->
     <div class="container mx-auto max-w-4xl p-8 rounded-2xl shadow-lg bg-secondary">
-      <h1 class="font-bold text-transparent text-3xl bg-clip-text text-center bg-[length:200%_200%] bg-center skeleton animate-bounce hover: cursor-move">
+      <h1 class="font-bold text-transparent text-3xl bg-clip-text text-center bg-[length:200%_200%] bg-center skeleton animate-bounce hover: cursor-help">
         <a href="https://fr.namemc.com/profile/erwan_cbr.1" target="_blank" class="underline skeleton text-cyan-100">erwan.cbr</a> dans Minecraft
       </h1>
       <br>
 
       <script src="./script/cheat.js"></script>
 
-      <p class="text-center text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-        Bienvenue sur mon profil Minecraft ! Je suis <a class="text-cyan-300 font-bold cursor-pointer" onclick="rainbowToggle()">erwan.cbr</a>, passionné par la redstone, la construction et le développement de serveurs. Explore mes compétences, mon expérience et mes projets dans l’univers cubique de Minecraft.
-      </p>
+              <p class="text-center text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+          Bienvenue sur mon profil Minecraft ! Je suis 
+          <span class="inline-flex items-center gap-1">
+            <svg class="arrow w-4 h-4 text-gray-400 dark:text-white" id="left-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14" aria-hidden="true">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"/>
+            </svg>
+
+            <a href="#" class="text-cyan-300 font-bold hover:underline" onclick="rainbowToggle()" aria-label="Activer effet arc-en-ciel sur le pseudo">
+              erwan.cbr
+            </a>
+
+            <svg class="arrow w-4 h-4 text-gray-400 dark:text-white" id="right-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14" aria-hidden="true">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"/>
+            </svg>
+          </span>,
+          passionné par la redstone, la construction et le développementwl de serveurs. Explore mes compétences, mon expérience et mes projets dans l’univers cubique de Minecraft.
+        </p>
 
 
     <!-- Boutons d'ouverture -->
      <script src="./script/modals.js"></script>
 
 
-      <div class="carousel w-full mb-6 relative overflow-hidden">
+<div class="carousel w-full mb-6 relative overflow-hidden min-h-[320px]">
   <!-- Slide 1 -->
-  <div id="slide1" class="carousel-item relative w-full flex items-center justify-center cursor-pointer"
-       onclick="openModal('profilModal')">
-    <button onclick="event.stopPropagation(); openModal('profilModal')" class="btn bg-green-500 hover:bg-green-600 text-white z-10 openmod">
+  <div id="slide1" class="carousel-item relative w-full flex items-center justify-center min-h-[320px] cursor-pointer">
+    <button onclick="event.stopPropagation(); openModal('profilModal')"
+      class="btn text-white w-96 h-40 rounded-3xl text-2xl font-bold z-10 openmod gradient-animated bg-profil">
       Profil Joueur
     </button>
     <a href="#slide4" class="btn btn-circle absolute left-4 top-1/2 -translate-y-1/2 z-20" onclick="event.stopPropagation()">❮</a>
@@ -105,9 +125,9 @@
   </div>
 
   <!-- Slide 2 -->
-  <div id="slide2" class="carousel-item relative w-full flex items-center justify-center cursor-pointer"
-       onclick="openModal('experienceModal')">
-    <button onclick="event.stopPropagation(); openModal('experienceModal')" class="btn bg-yellow-500 hover:bg-yellow-600 text-white z-10 openmod">
+  <div id="slide2" class="carousel-item relative w-full flex items-center justify-center min-h-[320px] cursor-pointer">
+    <button onclick="event.stopPropagation(); openModal('experienceModal')"
+      class="btn text-white w-96 h-40 rounded-3xl text-2xl font-bold z-10 openmod gradient-animated bg-experience">
       Expérience
     </button>
     <a href="#slide1" class="btn btn-circle absolute left-4 top-1/2 -translate-y-1/2 z-20" onclick="event.stopPropagation()">❮</a>
@@ -115,9 +135,9 @@
   </div>
 
   <!-- Slide 3 -->
-  <div id="slide3" class="carousel-item relative w-full flex items-center justify-center cursor-pointer"
-       onclick="openModal('competencesModal')">
-    <button onclick="event.stopPropagation(); openModal('competencesModal')" class="btn bg-cyan-500 hover:bg-cyan-600 text-white z-10 openmod">
+  <div id="slide3" class="carousel-item relative w-full flex items-center justify-center min-h-[320px] cursor-pointer">
+    <button onclick="event.stopPropagation(); openModal('competencesModal')"
+      class="btn text-white w-96 h-40 rounded-3xl text-2xl font-bold z-10 openmod gradient-animated bg-competences">
       Compétences
     </button>
     <a href="#slide2" class="btn btn-circle absolute left-4 top-1/2 -translate-y-1/2 z-20" onclick="event.stopPropagation()">❮</a>
@@ -125,15 +145,16 @@
   </div>
 
   <!-- Slide 4 -->
-  <div id="slide4" class="carousel-item relative w-full flex items-center justify-center cursor-pointer"
-       onclick="openModal('interetsModal')">
-    <button onclick="event.stopPropagation(); openModal('interetsModal')" class="btn bg-purple-500 hover:bg-purple-600 text-white openmod">
+  <div id="slide4" class="carousel-item relative w-full flex items-center justify-center min-h-[320px] cursor-pointer">
+    <button onclick="event.stopPropagation(); openModal('interetsModal')"
+      class="btn text-white w-96 h-40 rounded-3xl text-2xl font-bold z-10 openmod gradient-animated bg-interets">
       Centres d’intérêt
     </button>
     <a href="#slide3" class="btn btn-circle absolute left-4 top-1/2 -translate-y-1/2 z-20" onclick="event.stopPropagation()">❮</a>
     <a href="#slide1" class="btn btn-circle absolute right-4 top-1/2 -translate-y-1/2 z-20" onclick="event.stopPropagation()">❯</a>
   </div>
 </div>
+
 
 
 
@@ -151,6 +172,9 @@
           Mon objectif est de repousser les limites de la créativité dans Minecraft, en explorant des mécaniques de jeu avancées et en contribuant à la communauté avec des tutoriels et des maps personnalisées. J'espère aussi participer à des événements communautaires et collaborer avec d'autres passionnés pour créer des projets ambitieux.
         </p>
       </div>
+        <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
     </dialog>
 
 
@@ -178,6 +202,9 @@
           </ul>
         </div>
       </div>
+        <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
     </dialog>
 
     <!-- MODALE : Compétences -->
@@ -203,6 +230,9 @@
           <li>Espagnol : B1+</li>
         </ul>
       </div>
+        <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
     </dialog>
 
     <!-- MODALE : Centres d’intérêt -->
@@ -213,6 +243,9 @@
           Je m’intéresse à la création de maps, la modélisation 3D, et à tout ce qui touche à l’univers Minecraft.
         </p>
       </div>
+        <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
     </dialog>
 
     <!-- Bouton de contact -->
