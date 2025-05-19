@@ -10,17 +10,17 @@
     <link rel="shortcut icon" href="https://s.namemc.com/2d/skin/face.png?id=21184d4571429bbb&amp;scale=4">
     <link href="./style/output.css" rel="stylesheet" />
   </head>
-  <body class="bg-primary text-white min-h-screen p-6">
+  <body class="bg-primary text-white min-h-screen p-6" >
 
-    <button class="btn bg-blue-500 p-4 rounded-lg" onclick="checkScreenSize()" aria-label="Ouvrir la calculatrice"><img src="./res/calculator.png" alt="Icône calculatrice" class="w-10 h-10 object-contain"></button>
+    <button class="btn bg-blue-500 p-4 rounded-lg" onclick="checkScreenSize()" aria-label="Ouvrir la calculatrice"><img src="./res/calculator.png" alt="Icône calculatrice" class="w-10 h-10 object-contain animate-spin"></button>
 
     <!-- Modale de la calculatrice -->
     <dialog id="my_modal_1" class="modal">
-      <div class="modal-box w-[500px]">
-        <h3 class="text-lg font-bold">Calculatrice</h3>
+      <div class="modal-box w-[500px] bg-[#0077B6]">
+        <h3 class="text-xl font-bold text-center mb-3">Calculatrice</h3>
 
         <!-- Calculatrice -->
-        <div class="bg-secondary p-6 rounded-xl shadow-xl w-full text-primary">
+        <div class="bg-green-500 p-6 rounded-xl shadow-xl w-full text-primary">
           <input 
             id="display" 
             class="w-full h-16 text-right text-4xl p-4 bg-[#2e2e2e] text-white rounded-lg mb-6 border border-[#4a4a4a] font-mono tracking-widest" 
@@ -30,34 +30,34 @@
 
           <!-- Ligne 1 -->
           <div class="flex justify-center gap-4 mb-3">
-            <button class="btn bg-neutral text-white w-20 h-16" onclick="appendNumber(7)">7</button>
-            <button class="btn bg-neutral text-white w-20 h-16" onclick="appendNumber(8)">8</button>
-            <button class="btn bg-neutral text-white w-20 h-16" onclick="appendNumber(9)">9</button>
-            <button class="btn bg-orange-500 text-white w-20 h-16" onclick="chooseOperator('+')">+</button>
+            <button class="btn bg-neutral text-white w-20 h-16 rounded-2xl text-2xl" onclick="appendNumber(7)">7</button>
+            <button class="btn bg-neutral text-white w-20 h-16 rounded-2xl text-2xl" onclick="appendNumber(8)">8</button>
+            <button class="btn bg-neutral text-white w-20 h-16 rounded-2xl text-2xl" onclick="appendNumber(9)">9</button>
+            <button class="btn bg-orange-500 text-white w-20 h-16 rounded-4xl text-2xl" onclick="chooseOperator('+')">+</button>
           </div>
 
           <!-- Ligne 2 -->
           <div class="flex justify-center gap-4 mb-3">
-            <button class="btn bg-neutral text-white w-20 h-16" onclick="appendNumber(4)">4</button>
-            <button class="btn bg-neutral text-white w-20 h-16" onclick="appendNumber(5)">5</button>
-            <button class="btn bg-neutral text-white w-20 h-16" onclick="appendNumber(6)">6</button>
-            <button class="btn bg-orange-500 text-white w-20 h-16" onclick="chooseOperator('-')">-</button>
+            <button class="btn bg-neutral text-white w-20 h-16 rounded-2xl text-2xl" onclick="appendNumber(4)">4</button>
+            <button class="btn bg-neutral text-white w-20 h-16 rounded-2xl text-2xl" onclick="appendNumber(5)">5</button>
+            <button class="btn bg-neutral text-white w-20 h-16 rounded-2xl text-2xl" onclick="appendNumber(6)">6</button>
+            <button class="btn bg-orange-500 text-white w-20 h-16 rounded-4xl text-2xl" onclick="chooseOperator('-')">-</button>
           </div>
 
           <!-- Ligne 3 -->
           <div class="flex justify-center gap-4 mb-3">
-            <button class="btn bg-neutral text-white w-20 h-16" onclick="appendNumber(1)">1</button>
-            <button class="btn bg-neutral text-white w-20 h-16" onclick="appendNumber(2)">2</button>
-            <button class="btn bg-neutral text-white w-20 h-16" onclick="appendNumber(3)">3</button>
-            <button class="btn bg-orange-500 text-white w-20 h-16" onclick="chooseOperator('*')">*</button>
+            <button class="btn bg-neutral text-white w-20 h-16 rounded-2xl text-2xl" onclick="appendNumber(1)">1</button>
+            <button class="btn bg-neutral text-white w-20 h-16 rounded-2xl text-2xl" onclick="appendNumber(2)">2</button>
+            <button class="btn bg-neutral text-white w-20 h-16 rounded-2xl text-2xl" onclick="appendNumber(3)">3</button>
+            <button class="btn bg-orange-500 text-white w-20 h-16 rounded-4xl text-2xl" onclick="chooseOperator('*')">*</button>
           </div>
 
           <!-- Ligne 4 -->
           <div class="flex justify-center gap-4">
-            <button class="btn bg-neutral text-white w-20 h-16" onclick="appendNumber(0)">0</button>
-            <button class="btn bg-red-500 text-white w-20 h-16" onclick="clearDisplay()">C</button>
-            <button class="btn bg-green-500 text-white w-20 h-16" onclick="calculateResult()">=</button>
-            <button class="btn bg-orange-500 text-white w-20 h-16" onclick="chooseOperator('/')">/</button>
+            <button class="btn bg-neutral text-white w-20 h-16 rounded-2xl text-2xl" onclick="appendNumber(0)">0</button>
+            <button class="btn bg-red-500 text-white w-20 h-16 rounded-4xl text-2xl" onclick="clearDisplay()">C</button>
+            <button class="btn bg-green-500 text-white w-20 h-16 rounded-4xl text-2xl" onclick="calculateResult()">=</button>
+            <button class="btn bg-orange-500 text-white w-20 h-16 rounded-4xl text-2xl" onclick="chooseOperator('/')">/</button>
           </div>
         </div>
 
@@ -76,23 +76,54 @@
 
     <!-- Contenu principal -->
     <div class="container mx-auto max-w-4xl p-8 rounded-2xl shadow-lg bg-secondary">
-      <h1 class="font-bold text-transparent text-3xl bg-clip-text text-center bg-[length:200%_200%] bg-center skeleton">
-        <a href="https://fr.namemc.com/profile/erwan_cbr.1" target="_blank" class="underline text-blue-400">erwan.cbr</a> dans Minecraft
+      <h1 class="font-bold text-transparent text-3xl bg-clip-text text-center bg-[length:200%_200%] bg-center skeleton animate-bounce hover: cursor-move">
+        <a href="https://fr.namemc.com/profile/erwan_cbr.1" target="_blank" class="underline skeleton text-cyan-100">erwan.cbr</a> dans Minecraft
       </h1>
       <br>
 
-      <!-- Profil joueur -->
-      <section class="mb-8">
+      <p class="text-center text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+        Bienvenue sur mon profil Minecraft ! Je suis <strong class="text-cyan-300">erwan.cbr</strong>, passionné par la redstone, la construction et le développement de serveurs. Explore mes compétences, mon expérience et mes projets dans l’univers cubique de Minecraft.
+      </p>
+
+
+    <!-- Boutons d'ouverture -->
+     <script src="./script/modals.js"></script>
+
+    <div class="flex gap-4 flex-wrap justify-center mb-6">
+      <button onclick="openModal('profilModal')" class="btn bg-green-500 hover:bg-green-600">
+        Profil Joueur
+      </button>
+      <button onclick="openModal('experienceModal')" class="btn bg-yellow-500 hover:bg-yellow-600">
+        Expérience
+      </button>
+      <button onclick="openModal('competencesModal')" class="btn bg-cyan-500 hover:bg-cyan-600">
+        Compétences
+      </button>
+      <button onclick="openModal('interetsModal')" class="btn bg-purple-500 hover:bg-purple-600 ">
+        Centres d’intérêt
+      </button>
+    </div>
+
+    <!-- MODALE : Profil Joueur -->
+    <dialog id="profilModal" class="modal">
+      <div class="modal-box bg-secondary text-white" onclick="closeModal('profilModal')">
         <h2 class="text-2xl font-semibold mb-2 text-green-400">Profil Joueur</h2>
+        <h3 class="text-xl text-yellow-300 font-semibold mb-2">Mon Style de Jeu</h3>
         <p class="text-gray-200">
-          Passionné par Minecraft et l’exploration de ses mécaniques, je suis un joueur expérimenté dans la construction, la redstone et la survie.
+          J'adore relever des défis techniques, comme la création de fermes automatisées complexes, et résoudre des problèmes en utilisant la redstone de manière innovante. En parallèle, je m'amuse à créer des constructions architecturales uniques, allant des bases automatisées aux projets plus ambitieux comme des villes ou des monuments.
         </p>
-      </section>
+        <h3 class="text-xl text-yellow-300 font-semibold mt-4 mb-2">Mes Objectifs</h3>
+        <p class="text-gray-200">
+          Mon objectif est de repousser les limites de la créativité dans Minecraft, en explorant des mécaniques de jeu avancées et en contribuant à la communauté avec des tutoriels et des maps personnalisées. J'espère aussi participer à des événements communautaires et collaborer avec d'autres passionnés pour créer des projets ambitieux.
+        </p>
+      </div>
+    </dialog>
 
-      <!-- Expérience -->
-      <section class="mb-8">
+
+    <!-- MODALE : Expérience -->
+    <dialog id="experienceModal" class="modal">
+      <div class="modal-box bg-secondary text-white" onclick="closeModal('experienceModal')">
         <h2 class="text-2xl font-semibold mb-2 text-green-400">Expérience Minecraft</h2>
-
         <div class="mb-4">
           <p class="font-bold flex items-center gap-2 text-yellow-300">
             Développeur de Serveurs Minecraft <span class="loading loading-spinner loading-xs"></span>
@@ -103,7 +134,6 @@
             <li>Scripts en JavaScript & commandes avancées avec Command Blocks</li>
           </ul>
         </div>
-
         <div>
           <p class="font-bold text-yellow-300">Builder & Redstoner</p>
           <p class="text-gray-100">Multijoueur et Solo | Depuis 2018</p>
@@ -113,43 +143,43 @@
             <li>Projets créatifs en mode Créatif ou Survie Hardcore</li>
           </ul>
         </div>
-      </section>
+      </div>
+    </dialog>
 
-      <!-- Compétences -->
-      <section class="mb-8">
+    <!-- MODALE : Compétences -->
+    <dialog id="competencesModal" class="modal">
+      <div class="modal-box bg-secondary text-white" onclick="closeModal('competencesModal')">
         <h2 class="text-2xl font-semibold mb-2 text-green-400">Compétences Minecraft</h2>
-
         <h3 class="text-xl font-semibold mt-4 text-yellow-200">Techniques</h3>
         <ul class="list-disc list-inside text-gray-200 mt-2">
-          <li><strong class="text-orange-200">Commandes :</strong> /execute, /scoreboard, /data, fonctions personnalisées</li>
+          <li><strong class="text-orange-200">Commandes :</strong> /execute, /scoreboard, /data...</li>
           <li><strong class="text-orange-200">Redstone :</strong> Mécaniques complexes, systèmes de tri</li>
-          <li><strong class="text-orange-200">Build :</strong> Architecture médiévale, moderne, fantastique</li>
-          <li><strong class="text-orange-200">Mods & Plugins :</strong> Fabric, Forge, WorldEdit, EssentialsX</li>
+          <li><strong class="text-orange-200">Build :</strong> Architecture médiévale, moderne...</li>
+          <li><strong class="text-orange-200">Mods & Plugins :</strong> Fabric, Forge, WorldEdit...</li>
         </ul>
-
         <h3 class="text-xl font-semibold mt-6 text-yellow-200">Organisationnelles & Relationnelles</h3>
         <ul class="list-disc list-inside text-gray-200 mt-2">
           <li>Création de projets communautaires</li>
-          <li>Autonomie dans la conception de builds</li>
           <li>Participation à des events multijoueurs</li>
         </ul>
-
         <h3 class="text-xl font-semibold mt-6 text-cyan-400">Langues</h3>
         <ul class="list-disc list-inside text-gray-200 mt-2">
           <li>Français : Natif</li>
           <li>Anglais : B2</li>
           <li>Espagnol : B1+</li>
         </ul>
-      </section>
+      </div>
+    </dialog>
 
-      <!-- Intérêts -->
-      <section>
+    <!-- MODALE : Centres d’intérêt -->
+    <dialog id="interetsModal" class="modal">
+      <div class="modal-box bg-secondary text-white" onclick="closeModal('interetsModal')">
         <h2 class="text-2xl font-semibold mb-2 text-green-400">Centres d’Intérêt</h2>
         <p class="text-gray-200">
           Je m’intéresse à la création de maps, la modélisation 3D, et à tout ce qui touche à l’univers Minecraft.
         </p>
-      </section>
-    </div>
+      </div>
+    </dialog>
 
     <!-- Bouton de contact -->
     <div class="flex justify-center mt-6 mb-8 rounded-2xl">

@@ -1,4 +1,15 @@
-function sendmessage(event) { 
+// Charger et initialiser EmailJS
+(function() {
+    const script = document.createElement('script');
+    script.src = "https://cdn.emailjs.com/dist/email.min.js";
+    script.onload = function() {
+        emailjs.init("pn25-xNyYIJp9SP99"); // 🔁 Remplacez par votre PUBLIC KEY EmailJS
+    };
+    document.head.appendChild(script);
+})();
+
+// Fonction d'envoi du message
+function sendmessage(event) {
     event.preventDefault();
 
     var nom = document.getElementById("nom").value.trim();
@@ -11,16 +22,19 @@ function sendmessage(event) {
         return;
     }
 
-    const sujet = encodeURIComponent("Demande de contact depuis le site www.vainerac.fr");
-    const corps = encodeURIComponent(
-        `Nom : ${nom}\nPrénom : ${prenom}\nEmail : ${email}\n\n\n${message}`
-    );
+    const templateParams = {
+        nom: nom,
+        prenom: prenom,
+        email: email,
+        message: message
+    };
 
-    window.open(`mailto:erwan.combourieu@gmail.com?subject=${sujet}&body=${corps}`); 
-    
-    // Afficher un message de succès ou rediriger l'utilisateur
-    alert("Votre message a été envoyé avec succès !");
-    window.location.href = './pages/merci.html';
+    emailjs.send("service_gtszw32", "template_ykoerxl", templateParams) 
+        .then(function(response) {
+            alert("Votre message a été envoyé avec succès !");
+            window.location.href = './pages/merci.html';
+        }, function(error) {
+            console.error("Erreur lors de l'envoi :", error);
+            alert("Une erreur s'est produite lors de l'envoi. Veuillez réessayer plus tard.");
+        });
 }
-    
-      
