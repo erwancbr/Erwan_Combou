@@ -15,3 +15,36 @@
 
 ## Table Of Content
 
+[Installation](#Installation)
+
+[Usage](#Usage)
+
+
+<a name="Installation"/>
+
+
+## Installation 
+
+1. Clone the repository:
+```bash
+> git clone https://github.com/erwancbr/Erwan_Combou
+```
+2. Navigate to the project directory:
+```bash
+> cd Erwan_Combou/project-dev_web
+```
+3. Install the dependencies:
+```bash
+> npm install
+```
+
+<a name="Usage"/>
+
+
+## Usage
+
+Run the project with `npm`:
+
+```bash
+> npm start
+```
