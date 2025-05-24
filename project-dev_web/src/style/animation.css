@@ -83,11 +83,15 @@
     filter: brightness(1.15) saturate(1.2);
   }
 
-  .btn-circle:hover {
+  .btn-circle-left:hover {
     transform: rotate(12deg) scale(1.1);
     transition: transform 0.3s ease;
   }
 
+  .btn-circle-right:hover {
+    transform: rotate(-12deg) scale(1.1);
+    transition: transform 0.3s ease;
+  }
   .bg-profil {
     background-image: linear-gradient(270deg, #34d399, #10b981, #3b82f6);
   }
