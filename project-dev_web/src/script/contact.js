@@ -1,4 +1,7 @@
-function sendmessage() { 
+function sendmessage(event) { 
+
+     event.preventDefault();
+
     var nom = document.getElementById("nom").value.trim();
     var prenom = document.getElementById("prenom").value.trim();
     var email = document.getElementById("email").value.trim();
@@ -18,7 +21,7 @@ function sendmessage() {
     
     // Afficher un message de succès ou rediriger l'utilisateur
     alert("Votre message a été envoyé avec succès !");
-    window.location.href = '../../index.html';
+    window.location.href = 'http://localhost:1202/';
 }
     
    

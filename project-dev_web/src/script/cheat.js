@@ -1,5 +1,4 @@
 var rainbow = new Audio('./src/res/starman.mp3');
-var home = new Audio('./src/res/home.mp3');
 var clique = 0;
 
 function rainbowToggle() {
@@ -11,7 +10,6 @@ function rainbowToggle() {
     if (clique == 1) {
         console.log("active");
 
-        home.pause();
         
         for (let i = 0; i < divs.length; i++) {
             divs[i].classList.add("rainbow");
@@ -37,7 +35,6 @@ function rainbowToggle() {
         }
 
         rainbow.pause();   
-        home.play();    
         rainbow.currentTime = 0;
     }
 }

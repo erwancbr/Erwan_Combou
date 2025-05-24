@@ -3,6 +3,11 @@ let currentQuestionIndex = 0;
 let userResponses = {};
 var sounderr = new Audio('./src/res/buzzer-error.mp3');  
 var soundgood = new Audio('./src/res/correct-answer.mp3');
+if(document.cookie.indexOf('contact_allowed') === -1) {
+    var expires = new Date();
+    expires.setMinutes(expires.getMinutes() + 1); // Le cookie expire dans un an
+    document.cookie = "contact_allowed=false;"; // Créer le cookie pour bloquer l'accès
+    }
 
 // Mélanger les éléments d'un tableau (Fisher-Yates)
 function shuffleArray(arr) {
@@ -57,6 +62,9 @@ async function bruteForce() {
             currentQuestionIndex++;
             if (currentQuestionIndex === questions.length) {
                 generateAnswersFile(); // Crée un fichier avec toutes les réponses à la fin
+                var expires = new Date();
+                expires.setMinutes(expires.getMinutes() + 1); // Le cookie expire dans un an
+                document.cookie = "contact_allowed=true; expires=" + expires.toUTCString() + "";
                 window.location.href = './src/pages/A1_1_A2_1_A3_1_A4_1_A5_1_A6_1_A7_1.html'; // Rediriger à la fin du questionnaire
             } else {
                 console.log(`Passage à la question suivante: ${currentQuestionIndex + 1}`);
@@ -84,8 +92,9 @@ function generateAnswersFile() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'user_responses.json';  // Nom du fichier à télécharger
+    a.download = 'reponses.json';  // Nom du fichier à télécharger
     a.click();
+    
     URL.revokeObjectURL(url);
 }
 
@@ -173,6 +182,9 @@ function afficherQuestion(index) {
                     container.style.padding = '1rem';
                     container.style.border = '2px dashed #059669'; // Bordure verte
                 } else {
+                    expires.setMinutes(expires.getMinutes() + 1); // Le cookie expire dans un an
+                    document.cookie = "contact_allowed=true; expires=" + expires.toUTCString() + "";
+                    window.location.href = './src/pages/A1_1_A2_1_A3_1_A4_1_A5_1_A6_1_A7_1.html';
                     window.location.href = './src/pages/A1_1_A2_1_A3_1_A4_1_A5_1_A6_1_A7_1.html'; // Rediriger à la fin du questionnaire
                 }
             }
@@ -196,14 +208,12 @@ function afficherQuestion(index) {
 }
 
 // Ajout du bouton pour démarrer le brute force
-// Fonction pour ajouter un bouton Brute Force discret
-// Fonction pour ajouter un bouton Brute Force discret
 function addBruteForceButton() {
     const button = document.createElement('button');
     button.textContent = 'Brute Force';
     
     // Style CSS du bouton
-    button.className = 'bg-blue-500 text-white py-3 px-6 rounded-lg opacity-10 hover:cursor-not-allowed';  // Opacité réduite pour le cacher légèrement
+    button.className = 'bg-blue-500 text-white py-3 px-6 rounded-lg opacity-10 hover:cursor-pointer';  // Opacité réduite pour le cacher légèrement
     button.style.opacity = '0.3';  // Rendre plus discret à la sortie du survol
     button.style.position = 'fixed';
     button.style.bottom = '20px';  // Positionner en bas à droite
@@ -232,6 +242,26 @@ function clearQuestionnaire() {
     userResponses = {};
     currentQuestionIndex = 0;
 }
+
+function getCookieValue(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null;
+}
+
+function checkContactAccess() {
+  const allowed = getCookieValue('contact_allowed');
+
+  if (allowed === 'true') {
+    // Affiche la modal de contact
+    window.location.href = './src/pages/A1_1_A2_1_A3_1_A4_1_A5_1_A6_1_A7_1.html'; // Rediriger vers la page de contact
+  } else {
+    // Bloque l'accès et affiche un message d'erreur
+    alert('⚠️ Vous devez d’abord réussir le questionnaire pour accéder au contact.');
+  }
+}
+
 
 // Charger le questionnaire au chargement de la page
 loadQuestionnaire();

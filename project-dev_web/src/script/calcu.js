@@ -1,6 +1,4 @@
 let currentInput = '';
-let operator = '';
-let firstOperand = null;
 
 function checkScreenSize() {
   const screenWidth = window.innerWidth;
@@ -19,45 +17,28 @@ function appendNumber(number) {
 
 function chooseOperator(op) {
   if (currentInput === '') return;
-  if (firstOperand === null) {
-    firstOperand = parseFloat(currentInput);
-  } else if (operator) {
-    calculateResult();
-    firstOperand = parseFloat(currentInput);
+  const lastChar = currentInput.slice(-1);
+  if ('+-*/'.includes(lastChar)) {
+    // Remplace le dernier opérateur s’il y en a déjà un à la fin
+    currentInput = currentInput.slice(0, -1) + op;
+  } else {
+    currentInput += op;
   }
-  operator = op;
-  currentInput = '';
+  updateDisplay();
 }
 
 function calculateResult() {
-  if (firstOperand === null || currentInput === '') return;
-  const secondOperand = parseFloat(currentInput);
-  let result;
-
-  switch (operator) {
-    case '+': result = firstOperand + secondOperand; break;
-    case '-': result = firstOperand - secondOperand; break;
-    case '*': result = firstOperand * secondOperand; break;
-    case '/':
-      if (secondOperand === 0) {
-        alert("Erreur: division par zéro");
-        return;
-      }
-      result = firstOperand / secondOperand;
-      break;
-    default: return;
+  try {
+    const result = eval(currentInput);
+    currentInput = result.toString();
+    updateDisplay();
+  } catch (error) {
+    alert("Erreur dans l'expression");
   }
-
-  currentInput = result.toString();
-  operator = '';
-  firstOperand = null;
-  updateDisplay();
 }
 
 function clearDisplay() {
   currentInput = '';
-  operator = '';
-  firstOperand = null;
   updateDisplay();
 }
 
